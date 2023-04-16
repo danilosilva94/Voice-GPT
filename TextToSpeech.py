@@ -1,10 +1,12 @@
 import pyttsx3
 
-# Initialize the text to speech engine
-engine = pyttsx3.init()
+def speak(text):
+    # Initialize the text to speech engine
+    engine = pyttsx3.init()
 
-# Speak the specified text
-engine.say('Hello World!')
+    # Speak the specified text
+    print("They said", text)
+    engine.say(text)
 
-# Run the text to speech engine
-engine.runAndWait()
+    # Run the text to speech engine
+    engine.runAndWait()
