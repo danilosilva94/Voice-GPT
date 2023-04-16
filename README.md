@@ -28,7 +28,7 @@ Get an API key from OpenAI.
 Run the start.py file using the following command in your terminal:
 
 ```
-python start.py
+python Start.py
 ```
 
 Press the 'r' key to start recording your question. You'll have 5 seconds to record your question before the program saves your audio to a file called input.wav.
