@@ -7,6 +7,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 WAVE_OUTPUT_FILENAME = "input.wav"
+RECORD_SECONDS = 5
 
 # Initialize PyAudio
 p = pyaudio.PyAudio()
@@ -19,29 +20,15 @@ stream = p.open(format=FORMAT,
                 frames_per_buffer=CHUNK)
 
 frames = []
-is_recording = False
 
-print("Press 'r' to start recording...")
+print("Recording started...")
 
-# Start recording while the user is pressing the R key
-while True:
-    try:
-        key = input()
-        if key == 'r':
-            if not is_recording:
-                is_recording = True
-                print("Recording started...")
-            else:
-                is_recording = False
-                print("Recording stopped...")
-                break
+# Record audio for specified duration
+for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+    data = stream.read(CHUNK)
+    frames.append(data)
 
-        if is_recording:
-            data = stream.read(CHUNK)
-            frames.append(data)
-
-    except KeyboardInterrupt:
-        break
+print("Recording stopped...")
 
 # Stop the stream and close PyAudio
 stream.stop_stream()
