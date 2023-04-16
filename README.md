@@ -26,8 +26,11 @@ To use the Voice-GPT program, follow these steps:
 
 Get an API key from OpenAI.
 Run the start.py file using the following command in your terminal:
-Copy code
+
+```
 python start.py
+```
+
 Press the 'r' key to start recording your question. You'll have 5 seconds to record your question before the program saves your audio to a file called input.wav.
 The program will transcribe your recorded audio to text and send it to the GPT-3.5 model for processing.
 The program will then speak the response back to you through your speakers.
